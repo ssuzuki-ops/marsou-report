@@ -6,32 +6,12 @@
 <title>マルソー様 採用状況レポート｜6月3日 MTG</title>
 <style>
   /* Tab navigation */
-  .tab-nav {
-    background: var(--navy);
-    display: flex;
-    gap: 0;
-    padding: 0 48px;
-    border-bottom: 3px solid var(--orange);
-  }
-  .tab-btn {
-    background: none;
-    border: none;
-    color: #7A9AB0;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 12px 28px;
-    cursor: pointer;
-    letter-spacing: 0.05em;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -3px;
-    transition: color 0.2s;
-  }
+  .tab-nav { background: var(--navy); display: flex; gap: 0; padding: 0 48px; border-bottom: 3px solid var(--orange); }
+  .tab-btn { background: none; border: none; color: #7A9AB0; font-size: 13px; font-weight: 700; padding: 12px 28px; cursor: pointer; letter-spacing: 0.05em; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.2s; }
   .tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
   .tab-btn:hover { color: white; }
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
-
-  /* Dashboard specific */
   .dash-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 24px; }
   .dash-stat { background: var(--card); border-radius: 8px; border: 1px solid var(--border); padding: 14px; text-align: center; border-top: 3px solid var(--blue); }
   .dash-stat .ds-label { font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 6px; }
@@ -42,172 +22,59 @@
 </style>
 <style>
   :root {
-    --orange:       #F7941D;
-    --orange-light: #FFF3E0;
-    --blue:         #29ABE2;
-    --blue-dark:    #1A7FB5;
-    --blue-light:   #E0F5FB;
-    --navy:         #1A3050;
-    --navy-light:   #E8EFF8;
-    --bg:           #F5F5F5;
-    --card:         #FFFFFF;
-    --text:         #1A1A2A;
-    --muted:        #6A6A80;
-    --border:       #DEDEDE;
-    --green:        #27AE60;
-    --red:          #C0392B;
+    --orange: #F7941D; --orange-light: #FFF3E0;
+    --blue: #29ABE2; --blue-dark: #1A7FB5; --blue-light: #E0F5FB;
+    --navy: #1A3050; --navy-light: #E8EFF8;
+    --bg: #F5F5F5; --card: #FFFFFF; --text: #1A1A2A;
+    --muted: #6A6A80; --border: #DEDEDE;
+    --green: #27AE60; --red: #C0392B;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  /* Cover */
-  .cover {
-    background: var(--navy);
-    color: white;
-    padding: 26px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 5px solid var(--orange);
-  }
+  body { font-family: 'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.6; }
+  .cover { background: var(--navy); color: white; padding: 26px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 5px solid var(--orange); }
   .cover h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
   .cover .sub { font-size: 11px; color: #7A9AB0; letter-spacing: 0.04em; }
   .cover-right { text-align: right; }
   .cover-right .date { font-size: 18px; font-weight: 800; color: var(--orange); }
   .cover-right .note { font-size: 11px; color: #7A9AB0; margin-top: 4px; }
-  .wc-badge {
-    display: inline-block;
-    background: var(--orange);
-    color: white;
-    font-weight: 800;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-top: 8px;
-    letter-spacing: 0.06em;
-  }
-
-  /* Layout */
+  .wc-badge { display: inline-block; background: var(--orange); color: white; font-weight: 800; font-size: 12px; padding: 4px 10px; border-radius: 4px; margin-top: 8px; letter-spacing: 0.06em; }
   .main { padding: 28px 48px 40px; max-width: 1060px; margin: 0 auto; }
   .section { margin-bottom: 34px; }
-  .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    border-bottom: 2px solid var(--orange);
-    padding-bottom: 6px;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .sec-num {
-    background: var(--orange);
-    color: white;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 2px 6px;
-    border-radius: 3px;
-    letter-spacing: 0;
-  }
-
-  /* KPI Cards */
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 12px;
-  }
-  .kpi-card {
-    background: var(--card);
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    padding: 16px 14px 12px;
-    text-align: center;
-    border-top: 3px solid var(--blue);
-  }
+  .section-title { font-size: 13px; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--orange); padding-bottom: 6px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .sec-num { background: var(--orange); color: white; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 3px; letter-spacing: 0; }
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; }
+  .kpi-card { background: var(--card); border-radius: 8px; border: 1px solid var(--border); padding: 16px 14px 12px; text-align: center; border-top: 3px solid var(--blue); }
   .kpi-card.primary { border-top-color: var(--orange); }
   .kpi-card .label { font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
   .kpi-card .value { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1; }
   .kpi-card .value span { font-size: 14px; font-weight: 500; }
   .kpi-card .sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
-  .kpi-card .delta {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-top: 5px;
-  }
-  .d-up   { background: #E8F5E9; color: var(--green); }
-  .d-ok   { background: var(--blue-light); color: var(--blue-dark); }
+  .kpi-card .delta { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 5px; }
+  .d-up { background: #E8F5E9; color: var(--green); }
+  .d-ok { background: var(--blue-light); color: var(--blue-dark); }
   .d-warn { background: var(--orange-light); color: #8A4000; }
-  .d-red  { background: #FDECEA; color: var(--red); }
-
-  /* Diff section */
+  .d-red { background: #FDECEA; color: var(--red); }
   .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .diff-card { background: var(--card); border-radius: 8px; border: 1px solid var(--border); overflow: hidden; }
   .diff-hd { padding: 8px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: white; text-transform: uppercase; white-space: nowrap; }
   .diff-hd.prev { background: var(--muted); }
   .diff-hd.curr { background: var(--orange); }
-
-  /* Tables */
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  thead th {
-    background: var(--navy);
-    color: white;
-    padding: 8px 12px;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    font-size: 12px;
-  }
+  thead th { background: var(--navy); color: white; padding: 8px 12px; text-align: center; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; font-size: 12px; }
   thead th:first-child { text-align: left; }
   tbody tr:nth-child(even) { background: #F7F7F7; }
   tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: center; }
   tbody td:first-child { text-align: left; color: var(--navy); font-weight: 500; white-space: nowrap; }
   .table-card { background: var(--card); border-radius: 8px; border: 1px solid var(--border); overflow: hidden; }
-
   .row-total td { background: var(--navy-light) !important; font-weight: 700; color: var(--navy); }
-  .n-big  { font-size: 18px; font-weight: 800; color: var(--orange); }
-  .n-med  { font-weight: 700; color: var(--navy); }
-  .n-new  { font-weight: 700; color: var(--green); }
+  .n-big { font-size: 18px; font-weight: 800; color: var(--orange); }
+  .n-med { font-weight: 700; color: var(--navy); }
+  .n-new { font-weight: 700; color: var(--green); }
   .n-zero { color: #CCC; }
-  .new-tag {
-    display: inline-block;
-    background: #E8F5E9;
-    color: var(--green);
-    font-size: 9px;
-    font-weight: 800;
-    padding: 1px 5px;
-    border-radius: 3px;
-    margin-left: 4px;
-    letter-spacing: 0.04em;
-    vertical-align: middle;
-  }
-  .tag {
-    display: inline-block;
-    font-size: 9px;
-    padding: 1px 5px;
-    border-radius: 3px;
-    margin-left: 3px;
-    vertical-align: middle;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
+  .tag { display: inline-block; font-size: 9px; padding: 1px 5px; border-radius: 3px; margin-left: 3px; vertical-align: middle; font-weight: 600; letter-spacing: 0.02em; }
   .tag-free { background: var(--blue-light); color: var(--blue-dark); }
   .tag-paid { background: var(--orange-light); color: #8A4000; }
-  .tag-wc   { background: var(--navy-light);   color: var(--navy); }
-
-  /* Bar chart */
+  .tag-wc { background: var(--navy-light); color: var(--navy); }
   .bar-section { background: white; border-radius: 8px; border: 1px solid var(--border); padding: 18px 22px; }
   .bar-title { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
   .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -215,37 +82,18 @@
   .bar-track { flex: 1; height: 22px; background: #EBEBEB; border-radius: 4px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; font-size: 11px; font-weight: 700; color: white; }
   .bar-num { width: 32px; font-size: 13px; font-weight: 700; color: var(--navy); text-align: right; }
-  .b-blue   { background: var(--blue); }
-  .b-orange { background: var(--orange); }
-  .b-teal   { background: #1A9E80; }
-  .b-purple { background: #7D5EC0; }
-  .b-gray   { background: #95A5A6; }
-  .b-green  { background: var(--green); }
-
-  /* Two col */
+  .b-blue { background: var(--blue); } .b-orange { background: var(--orange); } .b-teal { background: #1A9E80; }
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  /* Separator */
   .sep { text-align: center; color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin: 24px 0 18px; border-top: 1px dashed var(--border); padding-top: 12px; }
-
-  /* Footer */
-  footer {
-    background: var(--navy);
-    color: #607A8A;
-    text-align: center;
-    padding: 14px;
-    font-size: 11px;
-    border-top: 4px solid var(--orange);
-    margin-top: 40px;
-  }
+  footer { background: var(--navy); color: #607A8A; text-align: center; padding: 14px; font-size: 11px; border-top: 4px solid var(--orange); margin-top: 40px; }
   footer strong { color: var(--orange); }
-
+  .indeed-link { font-size: 10px; color: var(--blue); text-decoration: none; font-weight: 600; }
+  .indeed-link:hover { text-decoration: underline; }
   @media print { body { background: white; } .main { padding: 16px 30px; } }
 </style>
 </head>
 <body>
 
-<!-- TAB NAV -->
 <div class="tab-nav" style="--navy:#1A3050;--orange:#F7941D;">
   <button class="tab-btn active" onclick="switchTab('report')">📊 採用レポート（6/3 MTG）</button>
   <button class="tab-btn" onclick="switchTab('jobs')">📋 求人ダッシュボード</button>
@@ -260,8 +108,6 @@ function switchTab(id) {
 </script>
 
 <div id="tab-report" class="tab-pane active">
-
-<!-- COVER -->
 <div class="cover">
   <div>
     <h1>マルソー様 採用状況レポート</h1>
@@ -276,7 +122,6 @@ function switchTab(id) {
 
 <div class="main">
 
-<!-- 01 採用状況サマリー -->
 <div class="section">
   <div class="section-title"><span class="sec-num">01</span> 採用状況サマリー（5/20〜6/2）</div>
   <div class="hero-grid">
@@ -307,10 +152,8 @@ function switchTab(id) {
   </div>
 </div>
 
-<!-- 02 前回MTGからの変化 -->
 <div class="section">
   <div class="section-title"><span class="sec-num">02</span> 前回MTG（5/20）からの変化</div>
-
   <div class="diff-grid">
     <div class="diff-card">
       <div class="diff-hd prev">前回MTG時点（5/20）の5月分（5/1〜5/19）</div>
@@ -333,43 +176,20 @@ function switchTab(id) {
       <div class="diff-hd curr">今回MTG（6/3）／ 集計期間（5/20〜6/2）</div>
       <table>
         <thead>
-          <tr>
-            <th>経路</th>
-            <th style="white-space:nowrap;">5/20〜5/31</th>
-            <th style="white-space:nowrap;">6/1〜6/2</th>
-            <th>計</th>
-          </tr>
+          <tr><th>経路</th><th style="white-space:nowrap;">5/20〜5/31</th><th style="white-space:nowrap;">6/1〜6/2</th><th>計</th></tr>
         </thead>
         <tbody>
-          <tr class="row-total">
-            <td>合計</td>
-            <td class="n-med">8</td>
-            <td class="n-med">1</td>
-            <td class="n-big">9</td>
-          </tr>
-          <tr>
-            <td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td>
-            <td>4</td><td class="n-zero">—</td><td class="n-med">4</td>
-          </tr>
-          <tr>
-            <td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td>
-            <td>2</td><td class="n-zero">—</td><td class="n-med">2</td>
-          </tr>
-          <tr>
-            <td>ハローワーク</td>
-            <td>1</td><td class="n-zero">—</td><td class="n-med">1</td>
-          </tr>
-          <tr>
-            <td>プレックス<span class="tag tag-wc">WorCry</span></td>
-            <td>1</td><td>1</td><td class="n-med">2</td>
-          </tr>
+          <tr class="row-total"><td>合計</td><td class="n-med">8</td><td class="n-med">1</td><td class="n-big">9</td></tr>
+          <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>4</td><td class="n-zero">—</td><td class="n-med">4</td></tr>
+          <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>2</td><td class="n-zero">—</td><td class="n-med">2</td></tr>
+          <tr><td>ハローワーク</td><td>1</td><td class="n-zero">—</td><td class="n-med">1</td></tr>
+          <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>1</td><td>1</td><td class="n-med">2</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
 
-<!-- 03 棒グラフ -->
 <div class="section">
   <div class="section-title"><span class="sec-num">03</span> 経路別 応募数（5/20〜6/2）</div>
   <div class="bar-section">
@@ -397,24 +217,18 @@ function switchTab(id) {
   </div>
 </div>
 
-<!-- 04 KPI + 内定承諾 -->
 <div class="section">
   <div class="section-title"><span class="sec-num">04</span> KPI 目標 vs 実績 ／ 内定・承諾 推移</div>
   <div class="two-col">
-
     <div class="table-card">
       <table>
-        <thead>
-          <tr><th>選考ステップ</th><th>目標</th><th>5月実績</th><th>期間実績（5/20〜6/2）</th></tr>
-        </thead>
+        <thead><tr><th>選考ステップ</th><th>目標</th><th>5月実績</th><th>期間実績（5/20〜6/2）</th></tr></thead>
         <tbody>
           <tr><td>エントリー</td><td>10</td><td>20</td><td class="n-med">9</td></tr>
           <tr><td>書類選考通過</td><td>7</td><td>7</td><td class="n-med">1</td></tr>
           <tr><td>面接実施</td><td>5</td><td>6</td><td class="n-med">0</td></tr>
           <tr><td>内定</td><td>2</td><td>1</td><td class="n-med">0</td></tr>
-          <tr>
-            <td>承諾</td>
-            <td>1</td>
+          <tr><td>承諾</td><td>1</td>
             <td>1<div style="font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;">社員紹介経由（WorCry外）</div></td>
             <td class="n-med">0<div style="font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;">社員紹介1件（WorCry外）</div></td>
           </tr>
@@ -424,12 +238,9 @@ function switchTab(id) {
         出典：ジョブカン 選考ステップレポート（5/20〜6/2、エントリー確定日ベース）
       </div>
     </div>
-
     <div class="table-card">
       <table>
-        <thead>
-          <tr><th>内定・承諾の経路</th><th>合計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th></tr>
-        </thead>
+        <thead><tr><th>内定・承諾の経路</th><th>合計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th></tr></thead>
         <tbody>
           <tr class="row-total"><td>合計</td><td class="n-med">11</td><td>4</td><td>1</td><td>2</td><td>2</td><td class="n-new">2</td></tr>
           <tr><td>ハローワーク</td><td>4</td><td>0</td><td>1</td><td>2</td><td>1</td><td class="n-zero">—</td></tr>
@@ -444,35 +255,20 @@ function switchTab(id) {
         出典：ジョブカン 経路別応募者数推移（種別：内定承諾数）2026/01〜06/02
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- 参考 累計 -->
 <div class="sep">参考：1〜6月 累計データ</div>
 <div class="section">
   <div class="section-title"><span class="sec-num">参考</span> 累計 経路別応募数（2026年1〜6月）</div>
-
-  <!-- メイン累計テーブル -->
   <div class="table-card" style="margin-bottom:16px;">
     <table>
       <thead>
-        <tr>
-          <th style="width:34%">経路</th>
-          <th>累計</th><th>1月</th><th>2月</th><th>3月</th>
-          <th>4月</th><th>5月</th><th>6月（〜6/2）</th>
-        </tr>
+        <tr><th style="width:34%">経路</th><th>累計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月（〜6/2）</th></tr>
       </thead>
       <tbody>
-        <tr class="row-total">
-          <td>合計</td>
-          <td class="n-big">87</td>
-          <td class="n-med">17</td><td class="n-med">11</td><td class="n-med">15</td><td class="n-med">22</td><td class="n-med">21</td><td class="n-big">1</td>
-        </tr>
-        <tr style="background:var(--orange-light);">
-          <td><strong>WorCry経由</strong><span class="tag tag-wc">WorCry</span></td>
-          <td><strong>33</strong></td><td><strong>8</strong></td><td><strong>6</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>6</strong></td><td><strong>1</strong></td>
-        </tr>
+        <tr class="row-total"><td>合計</td><td class="n-big">87</td><td class="n-med">17</td><td class="n-med">11</td><td class="n-med">15</td><td class="n-med">22</td><td class="n-med">21</td><td class="n-big">1</td></tr>
+        <tr style="background:var(--orange-light);"><td><strong>WorCry経由</strong><span class="tag tag-wc">WorCry</span></td><td><strong>33</strong></td><td><strong>8</strong></td><td><strong>6</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>6</strong></td><td><strong>1</strong></td></tr>
         <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>19</td><td>3</td><td>3</td><td>3</td><td>5</td><td>5</td><td class="n-zero">—</td></tr>
         <tr><td>ハローワーク</td><td>14</td><td>1</td><td>2</td><td>1</td><td>5</td><td>5</td><td class="n-zero">—</td></tr>
         <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>6</td><td>1</td><td>3</td><td>1</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
@@ -487,26 +283,12 @@ function switchTab(id) {
       </tbody>
     </table>
   </div>
-
-  <!-- WorCry経由 内訳テーブル -->
   <div class="table-card">
-    <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--orange); border-bottom:1px solid var(--border); letter-spacing:0.04em;">
-      ▼ WorCry経由 内訳
-    </div>
+    <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--orange); border-bottom:1px solid var(--border);">▼ WorCry経由 内訳</div>
     <table>
-      <thead>
-        <tr>
-          <th style="width:38%">媒体</th>
-          <th>累計</th><th>1月</th><th>2月</th><th>3月</th>
-          <th>4月</th><th>5月</th><th>6月（〜6/2）</th>
-        </tr>
-      </thead>
+      <thead><tr><th style="width:38%">媒体</th><th>累計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月（〜6/2）</th></tr></thead>
       <tbody>
-        <tr class="row-total">
-          <td>WorCry経由 合計</td>
-          <td class="n-med">33</td>
-          <td>8</td><td>6</td><td>5</td><td>7</td><td>6</td><td>1</td>
-        </tr>
+        <tr class="row-total"><td>WorCry経由 合計</td><td class="n-med">33</td><td>8</td><td>6</td><td>5</td><td>7</td><td>6</td><td>1</td></tr>
         <tr><td>Indeed（直接応募）</td><td>22</td><td>7</td><td>2</td><td>3</td><td>5</td><td>5</td><td class="n-zero">—</td></tr>
         <tr><td>プレックス</td><td>7</td><td>1</td><td>3</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td>直接応募（その他）</td><td>3</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
@@ -518,14 +300,9 @@ function switchTab(id) {
     </div>
   </div>
 </div>
-
 </div>
-
-<footer>
-  作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日 ／ 次回MTG：6月下旬予定
-</footer>
-
-</div><!-- /tab-report -->
+<footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日 ／ 次回MTG：6月下旬予定</footer>
+</div>
 
 <!-- TAB 2: 求人ダッシュボード -->
 <div id="tab-jobs" class="tab-pane">
@@ -542,36 +319,22 @@ function switchTab(id) {
 </div>
 
 <div class="main">
-
 <div class="section">
   <div class="section-title"><span class="sec-num">サマリー</span> 求人別 選考状況（2026年1〜6月）</div>
   <div class="dash-stats">
-    <div class="dash-stat">
-      <div class="ds-label">応募実績あり求人数</div>
-      <div class="ds-value">37<span> 件</span></div>
-    </div>
-    <div class="dash-stat" style="border-top-color:var(--orange);">
-      <div class="ds-label">総エントリー数</div>
-      <div class="ds-value">84<span> 件</span></div>
-    </div>
-    <div class="dash-stat" style="border-top-color:#27AE60;">
-      <div class="ds-label">内定承諾数（累計）</div>
-      <div class="ds-value">8<span> 名</span></div>
-    </div>
-    <div class="dash-stat" style="border-top-color:#7D5EC0;">
-      <div class="ds-label">内定数（累計）</div>
-      <div class="ds-value">11<span> 名</span></div>
-    </div>
+    <div class="dash-stat"><div class="ds-label">応募実績あり求人数</div><div class="ds-value">37<span> 件</span></div></div>
+    <div class="dash-stat" style="border-top-color:var(--orange);"><div class="ds-label">総エントリー数</div><div class="ds-value">84<span> 件</span></div></div>
+    <div class="dash-stat" style="border-top-color:#27AE60;"><div class="ds-label">内定承諾数（累計）</div><div class="ds-value">8<span> 名</span></div></div>
+    <div class="dash-stat" style="border-top-color:#7D5EC0;"><div class="ds-label">内定数（累計）</div><div class="ds-value">11<span> 名</span></div></div>
   </div>
 </div>
 
-<!-- Indeed掲載セクション -->
 <div class="section">
   <div class="section-title"><span class="sec-num" style="background:var(--blue);">Indeed</span> Indeed掲載中求人（グループ全社）</div>
   <div class="dash-stats" style="grid-template-columns:repeat(4,1fr); margin-bottom:16px;">
     <div class="dash-stat" style="border-top-color:var(--blue);">
       <div class="ds-label">Indeed掲載中（全社合計）</div>
-      <div class="ds-value">83<span> 件</span></div>
+      <div class="ds-value">102<span> 件</span></div>
     </div>
     <div class="dash-stat" style="border-top-color:var(--blue);">
       <div class="ds-label">掲載企業数</div>
@@ -582,69 +345,66 @@ function switchTab(id) {
       <div class="ds-value">18<span> 社</span></div>
     </div>
     <div class="dash-stat" style="border-top-color:var(--muted);">
-      <div class="ds-label">Indeed非掲載</div>
-      <div class="ds-value">3<span> 件</span></div>
+      <div class="ds-label">Jobcan登録求人数</div>
+      <div class="ds-value">155<span> 件</span></div>
     </div>
   </div>
 
-  <!-- 会社別サマリー -->
   <div class="two-col" style="margin-bottom:16px;">
     <div class="table-card">
-      <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--blue); border-bottom:1px solid var(--border);">▼ 会社別 Indeed掲載数</div>
+      <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--blue); border-bottom:1px solid var(--border);">▼ 会社別 Indeed掲載数（参考）</div>
       <table>
-        <thead><tr><th style="text-align:left;">会社名</th><th>Indeed掲載</th><th>全求人</th></tr></thead>
+        <thead><tr><th style="text-align:left;">会社名</th><th>Indeed掲載</th></tr></thead>
         <tbody>
-          <tr><td>マルソー株式会社</td><td style="color:var(--blue);font-weight:700;">20</td><td>20</td></tr>
-          <tr><td>マルソー・トランスポート</td><td style="color:var(--blue);font-weight:700;">16</td><td>16</td></tr>
-          <tr><td>東栄自動車</td><td style="color:var(--blue);font-weight:700;">8</td><td>8</td></tr>
-          <tr><td>産業運輸</td><td style="color:var(--blue);font-weight:700;">7</td><td>7</td></tr>
-          <tr><td>WastecENERGY</td><td style="color:var(--blue);font-weight:700;">5</td><td>5</td></tr>
-          <tr><td>ファースト・ブレイン</td><td style="color:var(--blue);font-weight:700;">5</td><td>5</td></tr>
-          <tr><td>MARUKI</td><td style="color:var(--blue);font-weight:700;">5</td><td>5</td></tr>
-          <tr><td>三条タクシー</td><td style="color:var(--blue);font-weight:700;">4</td><td>4</td></tr>
-          <tr><td>マルソー・ロジテック</td><td style="color:var(--blue);font-weight:700;">3</td><td>5</td></tr>
-          <tr><td>パスト・クレアーレ</td><td style="color:var(--blue);font-weight:700;">3</td><td>3</td></tr>
-          <tr><td>マルソー物流サービス</td><td style="color:var(--blue);font-weight:700;">2</td><td>2</td></tr>
-          <tr><td>新潟冷凍運輸</td><td style="color:var(--blue);font-weight:700;">2</td><td>2</td></tr>
-          <tr><td>バンノー</td><td style="color:var(--blue);font-weight:700;">1</td><td>1</td></tr>
-          <tr><td>新潟郵便輸送</td><td style="color:var(--blue);font-weight:700;">1</td><td>1</td></tr>
-          <tr><td>三条福祉会</td><td style="color:var(--blue);font-weight:700;">1</td><td>1</td></tr>
-          <tr><td>黒沢ロジテック</td><td class="n-zero">—</td><td>1</td></tr>
-          <tr><td>しごとば</td><td class="n-zero">—</td><td>0</td></tr>
-          <tr><td>上越建設工業</td><td class="n-zero">—</td><td>0</td></tr>
-          <tr class="row-total"><td>合計</td><td style="color:var(--blue);font-weight:700;">83</td><td>86</td></tr>
+          <tr><td>マルソー株式会社</td><td style="color:var(--blue);font-weight:700;">20</td></tr>
+          <tr><td>マルソー・トランスポート</td><td style="color:var(--blue);font-weight:700;">16</td></tr>
+          <tr><td>東栄自動車</td><td style="color:var(--blue);font-weight:700;">8</td></tr>
+          <tr><td>産業運輸</td><td style="color:var(--blue);font-weight:700;">7</td></tr>
+          <tr><td>WastecENERGY</td><td style="color:var(--blue);font-weight:700;">5</td></tr>
+          <tr><td>ファースト・ブレイン</td><td style="color:var(--blue);font-weight:700;">5</td></tr>
+          <tr><td>MARUKI</td><td style="color:var(--blue);font-weight:700;">5</td></tr>
+          <tr><td>三条タクシー</td><td style="color:var(--blue);font-weight:700;">4</td></tr>
+          <tr><td>マルソー・ロジテック</td><td style="color:var(--blue);font-weight:700;">3</td></tr>
+          <tr><td>パスト・クレアーレ</td><td style="color:var(--blue);font-weight:700;">3</td></tr>
+          <tr><td>マルソー物流サービス</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
+          <tr><td>新潟冷凍運輸</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
+          <tr><td>バンノー</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
+          <tr><td>新潟郵便輸送</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
+          <tr><td>三条福祉会</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
+          <tr><td>黒沢ロジテック 他</td><td class="n-zero">—</td></tr>
+          <tr class="row-total"><td>全社合計（Indeed管理画面基準）</td><td style="color:var(--blue);font-weight:700;">102</td></tr>
         </tbody>
       </table>
       <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-        出典：ジョブカン Indeed PLUS 連携設定 ／ 2026年6月2日時点
+        出典：Indeed管理画面 ／ 2026年6月3日時点<br>※ 会社別内訳はJobcan API取得値（参考）。合計102件はIndeed管理画面の確認値。
       </div>
     </div>
 
-    <!-- マルソー株式会社の個別リスト -->
     <div class="table-card">
+      <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--navy); border-bottom:1px solid var(--border);">▼ マルソー株式会社 掲載求人（20件）</div>
       <table>
-        <thead><tr><th>#</th><th style="text-align:left;">管理用求人名</th></tr></thead>
+        <thead><tr><th style="text-align:left;">#</th><th style="text-align:left;">管理用求人名</th><th>Indeed</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>マルソー_物流・倉庫管理のエリア統括リーダ【新潟エリア全般】</td></tr>
-          <tr><td>2</td><td>マルソー_自動車の板金・塗装スタッフ【自動車整販事業部】</td></tr>
-          <tr><td>3</td><td>マルソー_物流センターの倉庫管理スタッフ(将来の管理者候補)【長岡新産ＳＬＣ】</td></tr>
-          <tr><td>4</td><td>マルソー_倉庫内作業スタッフ【長岡新産ＳＬＣ】</td></tr>
-          <tr><td>5</td><td>マルソー_フォークリフトオペレーター【新潟共配センター】</td></tr>
-          <tr><td>6</td><td>マルソー_夜間物流センター管理【新潟共配センター】</td></tr>
-          <tr><td>7</td><td>マルソー_フォークリフトオペレーター(倉庫内入出庫スタッフ)【三条SLC】</td></tr>
-          <tr><td>8</td><td>自動車整備士（未経験）【自動車整販事業部】（マルソー株式会社）</td></tr>
-          <tr><td>9</td><td>自動車整備士（経験1年以上）【自動車整販事業部】（マルソー株式会社）</td></tr>
-          <tr><td>10</td><td>自動車整備士（経験3年以上）【自動車整販事業部】（マルソー株式会社）</td></tr>
-          <tr><td>11</td><td>自動車整備士（経験10年以上）【自動車整販事業部】（マルソー株式会社）</td></tr>
-          <tr><td>12</td><td>配車業務【埼玉営業所】（マルソー株式会社）</td></tr>
-          <tr><td>13</td><td>13t低床ウイング運行乗務員【埼玉営業所】（マルソー株式会社）</td></tr>
-          <tr><td>14</td><td>鋼材輸送の大型ドライバー(平ボディ)【埼玉営業所】（マルソー株式会社）</td></tr>
-          <tr><td>15</td><td>大型地場配送ドライバー【上越SLC】（マルソー株式会社）</td></tr>
-          <tr><td>16</td><td>4t地場配送ドライバー【上越SLC】（マルソー株式会社）</td></tr>
-          <tr><td>17</td><td>中型地場ドライバー（4t）【長岡新産ＳＬＣ】（マルソー株式会社）</td></tr>
-          <tr><td>18</td><td>大型地場ドライバー【長岡新産ＳＬＣ】（マルソー株式会社）</td></tr>
-          <tr><td>19</td><td>配送ドライバー（夜間）（新潟市西蒲区）【新潟巻潟東ＳＬＣ】（マルソー株式会社）</td></tr>
-          <tr><td>20</td><td>物流センター作業スタッフ【新潟巻潟東ＳＬＣ】（マルソー株式会社）</td></tr>
+          <tr><td>1</td><td>マルソー_物流・倉庫管理のエリア統括リーダ【新潟エリア全般】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E7%89%A9%E6%B5%81%E3%83%BB%E5%80%89%E5%BA%AB%E7%AE%A1%E7%90%86-%E3%82%A8%E3%83%AA%E3%82%A2%E7%B5%B1%E6%8B%AC-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>2</td><td>マルソー_自動車の板金・塗装スタッフ【自動車整販事業部】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E6%9D%BF%E9%87%91-%E5%A1%97%E8%A3%85-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>3</td><td>マルソー_物流センターの倉庫管理スタッフ【長岡新産ＳＬＣ】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E9%95%B7%E5%B2%A1%E6%96%B0%E7%94%A3-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>4</td><td>マルソー_倉庫内作業スタッフ【長岡新産ＳＬＣ】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E9%95%B7%E5%B2%A1%E6%96%B0%E7%94%A3-%E5%80%89%E5%BA%AB-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>5</td><td>マルソー_フォークリフトオペレーター【新潟共配センター】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%AA%E3%83%95%E3%83%88-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>6</td><td>マルソー_夜間物流センター管理【新潟共配センター】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E5%A4%9C%E9%96%93%E7%89%A9%E6%B5%81-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>7</td><td>マルソー_フォークリフトオペレーター【三条SLC】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%AA%E3%83%95%E3%83%88-%E4%B8%89%E6%9D%A1-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>8</td><td>自動車整備士（未経験）【自動車整販事業部】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E8%87%AA%E5%8B%95%E8%BB%8A%E6%95%B4%E5%82%99%E5%A3%AB-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>9</td><td>自動車整備士（経験1年以上）【自動車整販事業部】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E8%87%AA%E5%8B%95%E8%BB%8A%E6%95%B4%E5%82%99%E5%A3%AB-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>10</td><td>自動車整備士（経験3年以上）【自動車整販事業部】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E8%87%AA%E5%8B%95%E8%BB%8A%E6%95%B4%E5%82%99%E5%A3%AB-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>11</td><td>自動車整備士（経験10年以上）【自動車整販事業部】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E8%87%AA%E5%8B%95%E8%BB%8A%E6%95%B4%E5%82%99%E5%A3%AB-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>12</td><td>配車業務【埼玉営業所】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E9%85%8D%E8%BB%8A%E6%A5%AD%E5%8B%99-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>13</td><td>13t低床ウイング運行乗務員【埼玉営業所】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E5%9F%BC%E7%8E%89-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>14</td><td>鋼材輸送の大型ドライバー(平ボディ)【埼玉営業所】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E9%8B%BC%E6%9D%90%E8%BC%B8%E9%80%81-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>15</td><td>大型地場配送ドライバー【上越SLC】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E4%B8%8A%E8%B6%8A-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>16</td><td>4t地場配送ドライバー【上越SLC】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E4%B8%8A%E8%B6%8A-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>17</td><td>中型地場ドライバー（4t）【長岡新産ＳＬＣ】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E4%B8%AD%E5%9E%8B%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-%E9%95%B7%E5%B2%A1-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>18</td><td>大型地場ドライバー【長岡新産ＳＬＣ】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-%E9%95%B7%E5%B2%A1-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>19</td><td>配送ドライバー（夜間）【新潟巻潟東ＳＬＣ】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E5%A4%9C%E9%96%93%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-jobs.html" target="_blank">検索</a></td></tr>
+          <tr><td>20</td><td>物流センター作業スタッフ【新潟巻潟東ＳＬＣ】</td><td><a class="indeed-link" href="https://jp.indeed.com/q-%E3%83%9E%E3%83%AB%E3%82%BD%E3%83%BC-%E5%B7%BB%E6%BD%9F%E6%9D%B1-jobs.html" target="_blank">検索</a></td></tr>
         </tbody>
       </table>
     </div>
@@ -656,15 +416,7 @@ function switchTab(id) {
   <div class="table-card">
     <table>
       <thead>
-        <tr>
-          <th style="width:40%; text-align:left;">求人名</th>
-          <th>エントリー</th>
-          <th>内定</th>
-          <th>承諾</th>
-          <th>不合格</th>
-          <th>辞退</th>
-          <th>承諾率</th>
-        </tr>
+        <tr><th style="width:40%; text-align:left;">求人名</th><th>エントリー</th><th>内定</th><th>承諾</th><th>不合格</th><th>辞退</th><th>承諾率</th></tr>
       </thead>
       <tbody>
         <tr class="row-total"><td>合計</td><td class="n-big">84</td><td class="n-med">11</td><td class="n-med">8</td><td class="n-med">28</td><td class="n-med">22</td><td>9.5%</td></tr>
@@ -712,13 +464,9 @@ function switchTab(id) {
     </div>
   </div>
 </div>
-
-</div><!-- /main -->
-
-<footer>
-  作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日
-</footer>
-</div><!-- /tab-jobs -->
+</div>
+<footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日</footer>
+</div>
 
 </body>
 </html>
