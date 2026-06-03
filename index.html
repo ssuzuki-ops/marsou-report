@@ -91,10 +91,59 @@
   .indeed-link:hover { text-decoration: underline; }
   .job-link { color: var(--navy); text-decoration: none; font-weight: 500; }
   .job-link:hover { color: var(--blue); text-decoration: underline; }
+  /* モーダル */
+  .cand-modal-overlay { display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:1000;align-items:center;justify-content:center; }
+  .cand-modal-overlay.open { display:flex; }
+  .cand-modal { background:#fff;border-radius:10px;padding:24px;max-width:480px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.2); }
+  .cand-modal h3 { font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;border-bottom:2px solid var(--orange);padding-bottom:6px; }
+  .cand-modal a { display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;text-decoration:none;color:var(--navy);font-size:13px;border:1px solid var(--border);margin-bottom:6px;transition:background 0.15s; }
+  .cand-modal a:hover { background:var(--blue-light);border-color:var(--blue); }
+  .cand-modal .cand-name { font-weight:600; }
+  .cand-modal .cand-job { font-size:11px;color:var(--muted); }
+  .cand-modal .close-btn { margin-top:12px;width:100%;padding:8px;background:var(--navy);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600; }
+  .num-link { color:var(--orange);font-weight:800;cursor:pointer;text-decoration:underline dotted;font-size:18px; }
+  .num-link:hover { color:var(--blue); }
   @media print { body { background: white; } .main { padding: 16px 30px; } }
 </style>
 </head>
 <body>
+
+<!-- 候補者モーダル -->
+<div class="cand-modal-overlay" id="candModal" onclick="if(event.target===this)closeCandModal()">
+  <div class="cand-modal">
+    <h3 id="candModalTitle">応募者一覧（5/20〜6/2）</h3>
+    <div id="candModalList"></div>
+    <button class="close-btn" onclick="closeCandModal()">閉じる</button>
+  </div>
+</div>
+<script>
+const CANDS = {
+  "5/20-6/2": [
+    {id:7277008, name:"茨木 清之",      job:"中型地場ドライバー（4t）長岡新産SLC"},
+    {id:7273117, name:"和田 安史",      job:"大型地場ドライバー 長岡新産SLC"},
+    {id:7266080, name:"Ota Tomomi",     job:"総務人事（経験者）三条本社"},
+    {id:7250182, name:"小田島 賢一",    job:"中型地場ドライバー（4t）長岡新産SLC"},
+    {id:7243656, name:"成清 歩",        job:"ロジテック ドライバー（2t・4t）"},
+    {id:7240694, name:"イバラキ キヨユキ", job:"中型地場ドライバー（4t）長岡新産SLC"},
+    {id:7240680, name:"大泉 快弘",      job:"直接応募（Indeed）"},
+    {id:7225341, name:"梅澤俊和",       job:"プレックス（WorCry経由）"}
+  ]
+};
+function openCandModal(key, title) {
+  const list = CANDS[key] || [];
+  document.getElementById('candModalTitle').textContent = title;
+  document.getElementById('candModalList').innerHTML = list.map(c =>
+    `<a href="https://ats.jobcan.jp/candidates/${c.id}#file_tab" target="_blank">
+      <span class="cand-name">${c.name}</span>
+      <span class="cand-job">${c.job}</span>
+    </a>`
+  ).join('');
+  document.getElementById('candModal').classList.add('open');
+}
+function closeCandModal() {
+  document.getElementById('candModal').classList.remove('open');
+}
+</script>
 
 <div class="tab-nav" style="--navy:#1A3050;--orange:#F7941D;">
   <button class="tab-btn active" onclick="switchTab('report')">📊 採用レポート（6/3 MTG）</button>
@@ -181,7 +230,7 @@ function switchTab(id) {
           <tr><th>経路</th><th style="white-space:nowrap;">5/20〜5/31</th><th style="white-space:nowrap;">6/1〜6/2</th><th>計</th></tr>
         </thead>
         <tbody>
-          <tr class="row-total"><td>合計</td><td class="n-med">8</td><td class="n-med">1</td><td class="n-big">9</td></tr>
+          <tr class="row-total"><td>合計</td><td class="n-med">8</td><td class="n-med">1</td><td class="n-big"><span class="num-link" onclick="openCandModal('5/20-6/2','応募者一覧（5/20〜6/2 計9件）')">9</span></td></tr>
           <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>4</td><td class="n-zero">—</td><td class="n-med">4</td></tr>
           <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>2</td><td class="n-zero">—</td><td class="n-med">2</td></tr>
           <tr><td>ハローワーク</td><td>1</td><td class="n-zero">—</td><td class="n-med">1</td></tr>
