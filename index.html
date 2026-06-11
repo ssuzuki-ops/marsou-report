@@ -100,9 +100,19 @@
   .cand-modal a:hover { background:var(--blue-light);border-color:var(--blue); }
   .cand-modal .cand-name { font-weight:600; }
   .cand-modal .cand-job { font-size:11px;color:var(--muted); }
+  .cand-modal .cand-meta { font-size:10px;color:var(--muted);margin-top:1px; }
+  .cand-modal #candModalList { max-height:65vh;overflow-y:auto; }
   .cand-modal .close-btn { margin-top:12px;width:100%;padding:8px;background:var(--navy);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600; }
   .num-link { color:var(--orange);font-weight:800;cursor:pointer;text-decoration:underline dotted;font-size:18px; }
   .num-link:hover { color:var(--blue); }
+  .cand-st { display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle; }
+  .st-active { background:#E8F5E9;color:var(--green); }
+  .st-offer { background:var(--blue-light);color:var(--blue-dark); }
+  .st-ng { background:#FDECEA;color:var(--red); }
+  .st-drop { background:var(--orange-light);color:#8A4000; }
+  .indeed-ok { color:var(--blue);font-weight:700;font-size:11px; }
+  .indeed-warn { color:#E67E22;font-weight:700;font-size:11px;cursor:help; }
+  .cand-table-row td:first-child { font-weight:600; }
   @media print { body { background: white; } .main { padding: 16px 30px; } }
 </style>
 </head>
@@ -119,15 +129,21 @@
 <script>
 const CANDS = {
   "5/20-6/2": [
-    {id:7277008, name:"茨木 清之",      job:"中型地場ドライバー（4t）長岡新産SLC"},
-    {id:7273117, name:"和田 安史",      job:"大型地場ドライバー 長岡新産SLC"},
-    {id:7266080, name:"Ota Tomomi",     job:"総務人事（経験者）三条本社"},
-    {id:7250182, name:"小田島 賢一",    job:"中型地場ドライバー（4t）長岡新産SLC"},
-    {id:7243656, name:"成清 歩",        job:"ロジテック ドライバー（2t・4t）"},
-    {id:7240694, name:"イバラキ キヨユキ", job:"中型地場ドライバー（4t）長岡新産SLC"},
-    {id:7240680, name:"大泉 快弘",      job:"直接応募（Indeed）"},
-    {id:7225341, name:"梅澤俊和",       job:"プレックス（WorCry経由）"},
-    {id:7229188, name:"池田 翔吾",      job:"ドラ侍（有料）上越SLC 4t地場配送"}
+    {id:7225341, name:"梅澤 俊和",        path:"プレックス(WorCry)",        job:"物流サービス_ドライバー（4T）新潟市内",          st:"active", status:"書類選考中"},
+    {id:7237651, name:"三良 淳嗣",        path:"ドライバーテクノロジーズ",    job:"中型地場ドライバー（4t）長岡新産SLC",            st:"ng",     status:"不採用"},
+    {id:7250182, name:"小田島 賢一",      path:"ドライバーテクノロジーズ",    job:"中型地場ドライバー（4t）長岡新産SLC",            st:"drop",   status:"辞退"},
+    {id:7277008, name:"茨木 清之",        path:"ハローワーク",                job:"中型地場ドライバー（4t）長岡新産SLC",            st:"offer",  status:"承諾"},
+    {id:7240680, name:"大泉 快弘",        path:"直接応募(Indeed)",            job:"パスト・クレアーレ_冷凍食品加工責任者",          st:"drop",   status:"辞退"},
+    {id:7240694, name:"イバラキ キヨユキ",path:"ハローワーク",                job:"中型地場ドライバー（4t）長岡新産SLC",            st:"active", status:"書類選考中"},
+    {id:7243652, name:"沢田 伸之",        path:"直接応募(Indeed)",            job:"フォークリフトオペレーター（三条SLC）",          st:"ng",     status:"不採用"},
+    {id:7243656, name:"成清 歩",          path:"直接応募(Indeed)",            job:"ロジテック_ドライバー（2t・4t）",                st:"active", status:"書類選考中"},
+    {id:7279706, name:"金子 亜純",        path:"ハローワーク",                job:"総務人事【三条本社】",                           st:"ng",     status:"不採用"},
+    {id:7278831, name:"坂上 達亮",        path:"自社ホームページ",            job:"総務人事【三条本社】",                           st:"ng",     status:"不採用"},
+    {id:7266080, name:"太田 友美",        path:"直接応募(Indeed)",            job:"総務人事（経験者）【三条本社】",                 st:"active", status:"書類選考中"},
+    {id:7272963, name:"藤本 賢一",        path:"イツザイ",                    job:"上越SLC_4t地場配送ドライバー",                   st:"ng",     status:"不採用"},
+    {id:7273117, name:"和田 安史",        path:"プレックス(WorCry)",          job:"大型地場ドライバー 長岡新産SLC",                 st:"active", status:"書類選考中"},
+    {id:7273196, name:"内藤 久夫",        path:"ドラピタ",                    job:"中型地場ドライバー（4t）長岡新産SLC",            st:"ng",     status:"不採用"},
+    {id:7279683, name:"中村 育恵",        path:"ハローワーク",                job:"総務人事（経験者）【三条本社】",                 st:"active", status:"書類選考中"}
   ]
 };
 function openCandModal(key, title) {
@@ -135,7 +151,8 @@ function openCandModal(key, title) {
   document.getElementById('candModalTitle').textContent = title;
   document.getElementById('candModalList').innerHTML = list.map(c =>
     `<a href="https://ats.jobcan.jp/candidates/${c.id}#file_tab" target="_blank">
-      <span class="cand-name">${c.name}</span>
+      <span class="cand-name">${c.name}<span class="cand-st st-${c.st}">${c.status}</span></span>
+      <span class="cand-meta">${c.path}</span>
       <span class="cand-job">${c.job}</span>
     </a>`
   ).join('');
@@ -231,13 +248,50 @@ function switchTab(id) {
           <tr><th>経路</th><th style="white-space:nowrap;">5/20〜5/31</th><th style="white-space:nowrap;">6/1〜6/2</th><th>計</th></tr>
         </thead>
         <tbody>
-          <tr class="row-total"><td>合計</td><td class="n-med">8</td><td class="n-med">1</td><td class="n-big"><span class="num-link" onclick="openCandModal('5/20-6/2','応募者一覧（5/20〜6/2 計9件）')">9</span></td></tr>
+          <tr class="row-total"><td>合計</td><td class="n-med">8</td><td class="n-med">1</td><td class="n-big"><span class="num-link" onclick="openCandModal('5/20-6/2','応募者一覧（5/20〜6/2 全15件）')">9</span></td></tr>
           <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>4</td><td class="n-zero">—</td><td class="n-med">4</td></tr>
           <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>2</td><td class="n-zero">—</td><td class="n-med">2</td></tr>
           <tr><td>ハローワーク</td><td>1</td><td class="n-zero">—</td><td class="n-med">1</td></tr>
           <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>1</td><td>1</td><td class="n-med">2</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="sec-num" style="background:var(--blue);">候補者</span> 応募者一覧（5/20〜6/2 全15件）<span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:8px;">氏名クリック → 書類・資料タブ</span></div>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left;width:12%;">応募日</th>
+          <th style="text-align:left;width:18%;">氏名</th>
+          <th style="text-align:left;width:38%;">求人</th>
+          <th style="text-align:left;width:20%;">経路</th>
+          <th style="width:12%;">現状</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cand-table-row"><td>5/20</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7225341#file_tab" target="_blank">梅澤 俊和</a></td><td>物流サービス_ドライバー（4T）新潟市内</td><td>プレックス<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>5/20</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7237651#file_tab" target="_blank">三良 淳嗣</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
+        <tr class="cand-table-row"><td>5/20</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7250182#file_tab" target="_blank">小田島 賢一</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-drop">辞退</span></td></tr>
+        <tr class="cand-table-row"><td>5/21</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7277008#file_tab" target="_blank">茨木 清之</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ハローワーク</td><td><span class="cand-st st-offer">承諾</span></td></tr>
+        <tr class="cand-table-row"><td>5/22</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7240680#file_tab" target="_blank">大泉 快弘</a></td><td>パスト・クレアーレ_冷凍食品加工責任者</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-drop">辞退</span></td></tr>
+        <tr class="cand-table-row"><td>5/22</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7240694#file_tab" target="_blank">イバラキ キヨユキ</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ハローワーク</td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>5/24</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7243652#file_tab" target="_blank">沢田 伸之</a></td><td>フォークリフトオペレーター（三条SLC）</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
+        <tr class="cand-table-row"><td>5/24</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7243656#file_tab" target="_blank">成清 歩</a></td><td>ロジテック_ドライバー（2t・4t）</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>5/26</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7279706#file_tab" target="_blank">金子 亜純</a></td><td>総務人事【三条本社】</td><td>ハローワーク</td><td><span class="cand-st st-ng">不採用</span></td></tr>
+        <tr class="cand-table-row"><td>5/27</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7278831#file_tab" target="_blank">坂上 達亮</a></td><td>総務人事【三条本社】</td><td>自社ホームページ</td><td><span class="cand-st st-ng">不採用</span></td></tr>
+        <tr class="cand-table-row"><td>5/30</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7266080#file_tab" target="_blank">太田 友美</a></td><td>総務人事（経験者）【三条本社】</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7272963#file_tab" target="_blank">藤本 賢一</a></td><td>上越SLC_4t地場配送ドライバー</td><td>イツザイ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
+        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7273117#file_tab" target="_blank">和田 安史</a></td><td>大型地場ドライバー 長岡新産SLC</td><td>プレックス<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7273196#file_tab" target="_blank">内藤 久夫</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ドラピタ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
+        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7279683#file_tab" target="_blank">中村 育恵</a></td><td>総務人事（経験者）【三条本社】</td><td>ハローワーク</td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+      </tbody>
+    </table>
+    <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
+      出典：Jobcan候補者管理 ／ 応募日：2026/05/20〜06/02 ／ 全ステータス含む ／ 氏名リンク先：書類・資料タブ
     </div>
   </div>
 </div>
@@ -385,12 +439,12 @@ function switchTab(id) {
   <div class="section-title"><span class="sec-num" style="background:var(--blue);">Indeed</span> Indeed掲載中求人（グループ全社）</div>
   <div class="dash-stats" style="grid-template-columns:repeat(4,1fr); margin-bottom:16px;">
     <div class="dash-stat" style="border-top-color:var(--blue);">
-      <div class="ds-label">Indeed掲載中（全社合計）</div>
-      <div class="ds-value">102<span> 件</span></div>
+      <div class="ds-label">Indeed掲載中（条件達成済み）</div>
+      <div class="ds-value">103<span> 件</span></div>
     </div>
     <div class="dash-stat" style="border-top-color:var(--blue);">
       <div class="ds-label">掲載企業数</div>
-      <div class="ds-value">15<span> 社</span></div>
+      <div class="ds-value">11<span> 社</span></div>
     </div>
     <div class="dash-stat" style="border-top-color:var(--navy);">
       <div class="ds-label">Indeed PLUS連携企業</div>
@@ -398,37 +452,32 @@ function switchTab(id) {
     </div>
     <div class="dash-stat" style="border-top-color:var(--muted);">
       <div class="ds-label">Jobcan登録求人数</div>
-      <div class="ds-value">155<span> 件</span></div>
+      <div class="ds-value">156<span> 件</span></div>
     </div>
   </div>
 
   <div style="margin-bottom:16px;">
     <div class="table-card">
-      <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--blue); border-bottom:1px solid var(--border);">▼ 会社別 Indeed掲載数（参考）</div>
+      <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--blue); border-bottom:1px solid var(--border);">▼ 会社別 Indeed掲載数（Jobcan「条件達成済み」基準）</div>
       <table>
-        <thead><tr><th style="text-align:left;">会社名</th><th>Indeed掲載</th></tr></thead>
+        <thead><tr><th style="text-align:left;">会社名（Jobcan indeed_brand_name）</th><th>掲載求人数</th></tr></thead>
         <tbody>
-          <tr><td>マルソー株式会社</td><td style="color:var(--blue);font-weight:700;">20</td></tr>
-          <tr><td>マルソー・トランスポート</td><td style="color:var(--blue);font-weight:700;">16</td></tr>
-          <tr><td>東栄自動車</td><td style="color:var(--blue);font-weight:700;">8</td></tr>
-          <tr><td>産業運輸</td><td style="color:var(--blue);font-weight:700;">7</td></tr>
-          <tr><td>WastecENERGY</td><td style="color:var(--blue);font-weight:700;">5</td></tr>
-          <tr><td>ファースト・ブレイン</td><td style="color:var(--blue);font-weight:700;">5</td></tr>
-          <tr><td>MARUKI</td><td style="color:var(--blue);font-weight:700;">5</td></tr>
-          <tr><td>三条タクシー</td><td style="color:var(--blue);font-weight:700;">4</td></tr>
-          <tr><td>マルソー・ロジテック</td><td style="color:var(--blue);font-weight:700;">3</td></tr>
-          <tr><td>パスト・クレアーレ</td><td style="color:var(--blue);font-weight:700;">3</td></tr>
-          <tr><td>マルソー物流サービス</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
-          <tr><td>新潟冷凍運輸</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
-          <tr><td>バンノー</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
-          <tr><td>新潟郵便輸送</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
-          <tr><td>三条福祉会</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
-          <tr><td>黒沢ロジテック 他</td><td class="n-zero">—</td></tr>
-          <tr class="row-total"><td>全社合計（Indeed管理画面基準）</td><td style="color:var(--blue);font-weight:700;">102</td></tr>
+          <tr><td>マルソー株式会社</td><td style="color:var(--blue);font-weight:700;">69</td></tr>
+          <tr><td>株式会社産業運輸</td><td style="color:var(--blue);font-weight:700;">8</td></tr>
+          <tr><td>株式会社東栄自動車</td><td style="color:var(--blue);font-weight:700;">8</td></tr>
+          <tr><td>三条タクシー株式会社</td><td style="color:var(--blue);font-weight:700;">4</td></tr>
+          <tr><td>株式会社パスト・クレアーレ</td><td style="color:var(--blue);font-weight:700;">3</td></tr>
+          <tr><td>株式会社マルソー・ロジテック</td><td style="color:var(--blue);font-weight:700;">3</td></tr>
+          <tr><td>株式会社MARUKI</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
+          <tr><td>新潟冷凍運輸株式会社</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
+          <tr><td>株式会社マルソー物流サービス</td><td style="color:var(--blue);font-weight:700;">2</td></tr>
+          <tr><td>社会福祉法人 三条福祉会</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
+          <tr><td>株式会社バンノー</td><td style="color:var(--blue);font-weight:700;">1</td></tr>
+          <tr class="row-total"><td>全社合計（条件達成済み求人数）</td><td style="color:var(--blue);font-weight:700;">103</td></tr>
         </tbody>
       </table>
       <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-        出典：Indeed管理画面 ／ 2026年6月3日時点<br>※ 会社別内訳はJobcan API取得値（参考）。合計102件はIndeed管理画面の確認値。
+        出典：Jobcan ATS API（use_indeed=true かつ indeed_api_condition=空）／ 2026年6月11日時点<br>※ 条件未達（entry_inactive/indeed_plus_missing等）は除外。Jobcan上のindeed_brand_nameでグルーピング。
       </div>
     </div>
   </div>
@@ -489,6 +538,39 @@ function switchTab(id) {
 </div>
 </div>
 <footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日</footer>
+<script>
+// Indeed掲載ステータス（Jobcan条件達成済み判定 2026-06-11時点）
+const INDEED_STATUS = {
+  2191330:'ok', 2191328:'ok', 2191320:'ok', 2191331:'ok', 2191332:'ok',
+  2195283:'ok', 2191334:'ok', 2191446:'none', 2195901:'ok', 2191319:'ok',
+  2191324:'ok', 2195267:'ok', 2191327:'warn_entry', 2191329:'ok',
+  2263134:'ok', 2265113:'ok', 2191339:'ok', 2191341:'ok', 2191342:'ok',
+  2191344:'ok', 2191442:'none', 2192416:'ok', 2192418:'ok', 2194082:'ok',
+  2194094:'warn_plus', 2195284:'ok', 2195287:'ok', 2195288:'ok',
+  2195900:'ok', 2195902:'ok', 2195903:'none', 2239335:'none',
+  2239336:'none', 2191345:'ok', 2191346:'ok', 2239338:'warn_entry'
+};
+document.querySelectorAll('#tab-jobs .table-card table tbody tr').forEach(tr => {
+  const a = tr.querySelector('td:first-child a.job-link');
+  if (!a) return;
+  const m = a.href.match(/job_offers\/(\d+)/);
+  if (!m) return;
+  const id = parseInt(m[1]);
+  const st = INDEED_STATUS[id];
+  if (st === undefined) return;
+  const cells = tr.querySelectorAll('td');
+  const lastCell = cells[cells.length - 1];
+  if (st === 'ok') {
+    lastCell.innerHTML = '<span class="indeed-ok">✅掲載中</span>';
+  } else if (st === 'warn_entry') {
+    lastCell.innerHTML = '<span class="indeed-warn" title="応募受付がOFFになっているため掲載停止中">⚠️停止中</span>';
+  } else if (st === 'warn_plus') {
+    lastCell.innerHTML = '<span class="indeed-warn" title="Indeed PLUS必須項目が未設定">⚠️条件未達</span>';
+  } else {
+    lastCell.innerHTML = '<span class="n-zero">—</span>';
+  }
+});
+</script>
 </div>
 
 </body>
