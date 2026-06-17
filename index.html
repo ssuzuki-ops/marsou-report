@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>マルソー様 採用状況レポート｜6月3日 MTG</title>
+<title>マルソー様 採用状況レポート｜6月17日 MTG</title>
 <style>
   /* Tab navigation */
   .tab-nav { background: var(--navy); display: flex; gap: 0; padding: 0 48px; border-bottom: 3px solid var(--orange); }
@@ -144,6 +144,15 @@ const CANDS = {
     {id:7273117, name:"和田 安史",        path:"プレックス(WorCry)",          job:"大型地場ドライバー 長岡新産SLC",                 st:"active", status:"書類選考中"},
     {id:7273196, name:"内藤 久夫",        path:"ドラピタ",                    job:"中型地場ドライバー（4t）長岡新産SLC",            st:"ng",     status:"不採用"},
     {id:7279683, name:"中村 育恵",        path:"ハローワーク",                job:"総務人事（経験者）【三条本社】",                 st:"active", status:"書類選考中"}
+  ],
+  "6/3-6/16": [
+    {id:7299087, name:"よしざき　としゆき",path:"直接応募",                   job:"マルソー_フォークリフトオペレーター【新潟共配センター】", st:"active", status:"一次面接中"},
+    {id:7302302, name:"田村　淳一",        path:"ドライバーテクノロジーズ",    job:"マルソー_【上越SLC】大型地場配送ドライバー",     st:"active", status:"一次面接中"},
+    {id:7289425, name:"山下 莉音",         path:"直接応募(Indeed)",            job:"マルソー・ロジテック_事務員",                    st:"active", status:"一次面接中"},
+    {id:7294519, name:"山口　佑樹",        path:"ドラピタ",                    job:"マルソー_【長岡新産ＳＬＣ】中型地場ドライバー（4t）", st:"active", status:"一次面接中"},
+    {id:7305970, name:"山口　和憲",        path:"ドライバーテクノロジーズ",    job:"マルソー_【長岡新産ＳＬＣ】大型地場ドライバー_0207", st:"active", status:"一次面接中"},
+    {id:7306818, name:"小田 智子",         path:"直接応募(Indeed)",            job:"マルソー_総務人事【三条本社】",                  st:"active", status:"書類選考中"},
+    {id:7301968, name:"角谷　仁",          path:"ドライバーテクノロジーズ",    job:"マルソー_【上越SLC】4t地場配送ドライバー",       st:"active", status:"一次面接中"}
   ]
 };
 function openCandModal(key, title) {
@@ -164,7 +173,7 @@ function closeCandModal() {
 </script>
 
 <div class="tab-nav" style="--navy:#1A3050;--orange:#F7941D;">
-  <button class="tab-btn active" onclick="switchTab('report')">📊 採用レポート（6/3 MTG）</button>
+  <button class="tab-btn active" onclick="switchTab('report')">📊 採用レポート（6/17 MTG）</button>
   <button class="tab-btn" onclick="switchTab('jobs')">📋 求人ダッシュボード</button>
 </div>
 <script>
@@ -180,10 +189,10 @@ function switchTab(id) {
 <div class="cover">
   <div>
     <h1>マルソー様 採用状況レポート</h1>
-    <div class="sub">集計期間：2026/05/20（前回MTG）〜 2026/06/02</div>
+    <div class="sub">集計期間：2026/06/03（前回MTG）〜 2026/06/16</div>
   </div>
   <div class="cover-right">
-    <div class="date">2026年6月3日 MTG</div>
+    <div class="date">2026年6月17日 MTG</div>
     <div class="note">データソース：ジョブカン採用管理</div>
     <div class="wc-badge">WorCry</div>
   </div>
@@ -192,28 +201,28 @@ function switchTab(id) {
 <div class="main">
 
 <div class="section">
-  <div class="section-title"><span class="sec-num">01</span> 採用状況サマリー（5/20〜6/2）</div>
+  <div class="section-title"><span class="sec-num">01</span> 採用状況サマリー（6/3〜6/16）</div>
   <div class="hero-grid">
     <div class="kpi-card primary">
-      <div class="label">応募数（5/20〜6/2）</div>
-      <div class="value">9<span> 件</span></div>
-      <div class="sub">5/20〜5/31：8件 ／ 6/1〜6/2：1件</div>
-      <div class="delta d-red">月次目標：10件（−1件）</div>
+      <div class="label">応募数（6/3〜6/16）</div>
+      <div class="value">7<span> 件</span></div>
+      <div class="sub">6/3〜6/9：4件 ／ 6/10〜6/16：3件</div>
+      <div class="delta d-red">月次目標：10件（−3件）</div>
     </div>
     <div class="kpi-card">
-      <div class="label">内定承諾（5/20〜6/2）</div>
-      <div class="value">1<span> 名</span></div>
-      <div class="sub">社員紹介経由（WorCry外）</div>
-      <div class="delta d-red">未達（WorCry経由：0件）</div>
+      <div class="label">内定承諾（6/3〜6/16）</div>
+      <div class="value">3<span> 名</span></div>
+      <div class="sub">茨木 清之・渡辺 辰巳・半間 貴博（全員WorCry外）</div>
+      <div class="delta d-warn">月次目標超過 ／ WorCry経由：0件</div>
     </div>
     <div class="kpi-card">
-      <div class="label">辞退（5/20〜6/2）</div>
+      <div class="label">辞退（6/3〜6/16）</div>
       <div class="value">0<span> 名</span></div>
       <div class="sub">—</div>
       <div class="delta d-ok">問題なし</div>
     </div>
     <div class="kpi-card">
-      <div class="label">内定数（5/20〜6/2）</div>
+      <div class="label">内定数（6/3〜6/16）</div>
       <div class="value">0<span> 名</span></div>
       <div class="sub">目標：2名</div>
       <div class="delta d-red">目標未達</div>
@@ -222,37 +231,33 @@ function switchTab(id) {
 </div>
 
 <div class="section">
-  <div class="section-title"><span class="sec-num">02</span> 前回MTG（5/20）からの変化</div>
+  <div class="section-title"><span class="sec-num">02</span> 前回MTG（6/3）からの変化</div>
   <div class="diff-grid">
     <div class="diff-card">
-      <div class="diff-hd prev">前回MTG時点（5/20）の5月分（5/1〜5/19）</div>
+      <div class="diff-hd prev">前回MTG（6/3）の集計期間（5/20〜6/2）</div>
       <table>
         <thead><tr><th>経路</th><th>件数</th></tr></thead>
         <tbody>
-          <tr class="row-total"><td>合計</td><td class="n-med">11</td></tr>
-          <tr><td>ハローワーク</td><td>3</td></tr>
+          <tr class="row-total"><td>合計</td><td class="n-med">9</td></tr>
+          <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>4</td></tr>
           <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>2</td></tr>
-          <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>1</td></tr>
-          <tr><td>イツザイ</td><td>1</td></tr>
-          <tr><td>engage（無料）</td><td>1</td></tr>
-          <tr><td>ドラピタ<span class="tag tag-paid">有料</span></td><td>1</td></tr>
-          <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>1</td></tr>
-          <tr><td>ドラ侍<span class="tag tag-paid">有料</span></td><td>1</td></tr>
+          <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>2</td></tr>
+          <tr><td>ハローワーク</td><td>1</td></tr>
         </tbody>
       </table>
     </div>
     <div class="diff-card">
-      <div class="diff-hd curr">今回MTG（6/3）／ 集計期間（5/20〜6/2）</div>
+      <div class="diff-hd curr">今回MTG（6/17）／ 集計期間（6/3〜6/16）</div>
       <table>
         <thead>
-          <tr><th>経路</th><th style="white-space:nowrap;">5/20〜5/31</th><th style="white-space:nowrap;">6/1〜6/2</th><th>計</th></tr>
+          <tr><th>経路</th><th style="white-space:nowrap;">6/3〜6/9</th><th style="white-space:nowrap;">6/10〜6/16</th><th>計</th></tr>
         </thead>
         <tbody>
-          <tr class="row-total"><td>合計</td><td class="n-med">8</td><td class="n-med">1</td><td class="n-big"><span class="num-link" onclick="openCandModal('5/20-6/2','応募者一覧（5/20〜6/2 全15件）')">9</span></td></tr>
-          <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>4</td><td class="n-zero">—</td><td class="n-med">4</td></tr>
-          <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>2</td><td class="n-zero">—</td><td class="n-med">2</td></tr>
-          <tr><td>ハローワーク</td><td>1</td><td class="n-zero">—</td><td class="n-med">1</td></tr>
-          <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>1</td><td>1</td><td class="n-med">2</td></tr>
+          <tr class="row-total"><td>合計</td><td class="n-med">4</td><td class="n-med">3</td><td class="n-big"><span class="num-link" onclick="openCandModal('6/3-6/16','応募者一覧（6/3〜6/16 全7件）')">7</span></td></tr>
+          <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>1</td><td>2</td><td class="n-med">3</td></tr>
+          <tr><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td>1</td><td>1</td><td class="n-med">2</td></tr>
+          <tr><td>ドラピタ<span class="tag tag-paid">有料</span></td><td>1</td><td class="n-zero">—</td><td class="n-med">1</td></tr>
+          <tr><td>直接応募（その他）<span class="tag tag-wc">WorCry</span></td><td>1</td><td class="n-zero">—</td><td class="n-med">1</td></tr>
         </tbody>
       </table>
     </div>
@@ -260,7 +265,7 @@ function switchTab(id) {
 </div>
 
 <div class="section">
-  <div class="section-title"><span class="sec-num" style="background:var(--blue);">候補者</span> 応募者一覧（5/20〜6/2 全15件）<span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:8px;">氏名クリック → 書類・資料タブ</span></div>
+  <div class="section-title"><span class="sec-num" style="background:var(--blue);">候補者</span> 応募者一覧（6/3〜6/16 全7件）<span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:8px;">氏名クリック → 書類・資料タブ</span></div>
   <div class="table-card">
     <table>
       <thead>
@@ -273,51 +278,43 @@ function switchTab(id) {
         </tr>
       </thead>
       <tbody>
-        <tr class="cand-table-row"><td>5/20</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7225341#file_tab" target="_blank">梅澤 俊和</a></td><td>物流サービス_ドライバー（4T）新潟市内</td><td>プレックス<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
-        <tr class="cand-table-row"><td>5/20</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7237651#file_tab" target="_blank">三良 淳嗣</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
-        <tr class="cand-table-row"><td>5/20</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7250182#file_tab" target="_blank">小田島 賢一</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-drop">辞退</span></td></tr>
-        <tr class="cand-table-row"><td>5/21</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7277008#file_tab" target="_blank">茨木 清之</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ハローワーク</td><td><span class="cand-st st-offer">承諾</span></td></tr>
-        <tr class="cand-table-row"><td>5/22</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7240680#file_tab" target="_blank">大泉 快弘</a></td><td>パスト・クレアーレ_冷凍食品加工責任者</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-drop">辞退</span></td></tr>
-        <tr class="cand-table-row"><td>5/22</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7240694#file_tab" target="_blank">イバラキ キヨユキ</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ハローワーク</td><td><span class="cand-st st-active">書類選考中</span></td></tr>
-        <tr class="cand-table-row"><td>5/24</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7243652#file_tab" target="_blank">沢田 伸之</a></td><td>フォークリフトオペレーター（三条SLC）</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
-        <tr class="cand-table-row"><td>5/24</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7243656#file_tab" target="_blank">成清 歩</a></td><td>ロジテック_ドライバー（2t・4t）</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
-        <tr class="cand-table-row"><td>5/26</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7279706#file_tab" target="_blank">金子 亜純</a></td><td>総務人事【三条本社】</td><td>ハローワーク</td><td><span class="cand-st st-ng">不採用</span></td></tr>
-        <tr class="cand-table-row"><td>5/27</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7278831#file_tab" target="_blank">坂上 達亮</a></td><td>総務人事【三条本社】</td><td>自社ホームページ</td><td><span class="cand-st st-ng">不採用</span></td></tr>
-        <tr class="cand-table-row"><td>5/30</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7266080#file_tab" target="_blank">太田 友美</a></td><td>総務人事（経験者）【三条本社】</td><td>直接応募(Indeed)<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
-        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7272963#file_tab" target="_blank">藤本 賢一</a></td><td>上越SLC_4t地場配送ドライバー</td><td>イツザイ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
-        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7273117#file_tab" target="_blank">和田 安史</a></td><td>大型地場ドライバー 長岡新産SLC</td><td>プレックス<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
-        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7273196#file_tab" target="_blank">内藤 久夫</a></td><td>中型地場ドライバー（4t）長岡新産SLC</td><td>ドラピタ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-ng">不採用</span></td></tr>
-        <tr class="cand-table-row"><td>6/2</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7279683#file_tab" target="_blank">中村 育恵</a></td><td>総務人事（経験者）【三条本社】</td><td>ハローワーク</td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>6/5</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7299087#file_tab" target="_blank">よしざき　としゆき</a></td><td>マルソー_フォークリフトオペレーター【新潟共配センター】</td><td>直接応募（その他）<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">一次面接中</span></td></tr>
+        <tr class="cand-table-row"><td>6/5</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7302302#file_tab" target="_blank">田村　淳一</a></td><td>マルソー_【上越SLC】大型地場配送ドライバー</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-active">一次面接中</span></td></tr>
+        <tr class="cand-table-row"><td>6/7</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7289425#file_tab" target="_blank">山下 莉音</a></td><td>マルソー・ロジテック_事務員</td><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">一次面接中</span></td></tr>
+        <tr class="cand-table-row"><td>6/8</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7294519#file_tab" target="_blank">山口　佑樹</a></td><td>マルソー_【長岡新産ＳＬＣ】中型地場ドライバー（4t）</td><td>ドラピタ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-active">一次面接中</span></td></tr>
+        <tr class="cand-table-row"><td>6/11</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7305970#file_tab" target="_blank">山口　和憲</a></td><td>マルソー_【長岡新産ＳＬＣ】大型地場ドライバー</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-active">一次面接中</span></td></tr>
+        <tr class="cand-table-row"><td>6/11</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7306818#file_tab" target="_blank">小田 智子</a></td><td>マルソー_総務人事【三条本社】</td><td>直接応募（Indeed）<span class="tag tag-wc">WorCry</span></td><td><span class="cand-st st-active">書類選考中</span></td></tr>
+        <tr class="cand-table-row"><td>6/12</td><td><a class="job-link" href="https://ats.jobcan.jp/candidates/7301968#file_tab" target="_blank">角谷　仁</a></td><td>マルソー_【上越SLC】4t地場配送ドライバー</td><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td><span class="cand-st st-active">一次面接中</span></td></tr>
       </tbody>
     </table>
     <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-      出典：Jobcan候補者管理 ／ 応募日：2026/05/20〜06/02 ／ 全ステータス含む ／ 氏名リンク先：書類・資料タブ
+      出典：Jobcan候補者管理 ／ 応募日：2026/06/03〜06/16 ／ 全ステータス含む ／ 氏名リンク先：書類・資料タブ
     </div>
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title"><span class="sec-num">03</span> 経路別 応募数（5/20〜6/2）</div>
+  <div class="section-title"><span class="sec-num">03</span> 経路別 応募数（6/3〜6/16）</div>
   <div class="bar-section">
-    <div class="bar-title">集計期間（5/20〜6/2）の経路別応募数　合計9件</div>
-    <div class="bar-row">
-      <div class="bar-lbl">直接応募（Indeed）<span class="tag tag-wc">WorCry</span></div>
-      <div class="bar-track"><div class="bar-fill b-blue" style="width:100%">4件</div></div>
-      <div class="bar-num">4</div>
-    </div>
+    <div class="bar-title">集計期間（6/3〜6/16）の経路別応募数　合計7件</div>
     <div class="bar-row">
       <div class="bar-lbl">ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></div>
-      <div class="bar-track"><div class="bar-fill b-orange" style="width:50%">2件</div></div>
+      <div class="bar-track"><div class="bar-fill b-orange" style="width:100%">3件</div></div>
+      <div class="bar-num">3</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-lbl">直接応募（Indeed）<span class="tag tag-wc">WorCry</span></div>
+      <div class="bar-track"><div class="bar-fill b-blue" style="width:66.7%">2件</div></div>
       <div class="bar-num">2</div>
     </div>
     <div class="bar-row">
-      <div class="bar-lbl">プレックス<span class="tag tag-wc">WorCry</span></div>
-      <div class="bar-track"><div class="bar-fill b-blue" style="width:50%">2件</div></div>
-      <div class="bar-num">2</div>
+      <div class="bar-lbl">ドラピタ<span class="tag tag-paid">有料</span></div>
+      <div class="bar-track"><div class="bar-fill b-orange" style="width:33.3%">1件</div></div>
+      <div class="bar-num">1</div>
     </div>
     <div class="bar-row">
-      <div class="bar-lbl">ハローワーク</div>
-      <div class="bar-track"><div class="bar-fill b-teal" style="width:25%">1件</div></div>
+      <div class="bar-lbl">直接応募（その他）<span class="tag tag-wc">WorCry</span></div>
+      <div class="bar-track"><div class="bar-fill b-blue" style="width:33.3%">1件</div></div>
       <div class="bar-num">1</div>
     </div>
   </div>
@@ -328,37 +325,36 @@ function switchTab(id) {
   <div class="two-col">
     <div class="table-card">
       <table>
-        <thead><tr><th>選考ステップ</th><th>目標</th><th>5月実績</th><th>期間実績（5/20〜6/2）</th></tr></thead>
+        <thead><tr><th>選考ステップ</th><th>月次目標</th><th>当期（6/3〜6/16）</th><th>累計（1〜6月）</th></tr></thead>
         <tbody>
-          <tr><td>エントリー</td><td>10</td><td>20</td><td class="n-med">9</td></tr>
-          <tr><td>書類選考通過</td><td>7</td><td>7</td><td class="n-med">1</td></tr>
-          <tr><td>面接実施</td><td>5</td><td>6</td><td class="n-med">0</td></tr>
-          <tr><td>内定</td><td>2</td><td>1</td><td class="n-med">0</td></tr>
+          <tr><td>エントリー（応募数）</td><td>10</td><td class="n-med">7</td><td class="n-med">101</td></tr>
+          <tr><td>内定</td><td>2</td><td class="n-med">0</td><td class="n-med">14</td></tr>
           <tr><td>承諾</td><td>1</td>
-            <td>1<div style="font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;">社員紹介経由（WorCry外）</div></td>
-            <td class="n-med">0<div style="font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;">社員紹介1件（WorCry外）</div></td>
+            <td class="n-med">3<div style="font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;">茨木・渡辺・半間（全員WorCry外）</div></td>
+            <td class="n-med">14<div style="font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;">うちWorCry経由：2件（プレックス）</div></td>
           </tr>
         </tbody>
       </table>
       <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-        出典：ジョブカン 選考ステップレポート（5/20〜6/2、エントリー確定日ベース）
+        出典：ジョブカン 経路別応募数・内定承諾数レポート（1/1〜6/16、応募日ベース）
       </div>
     </div>
     <div class="table-card">
       <table>
-        <thead><tr><th>内定・承諾の経路</th><th>合計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th></tr></thead>
+        <thead><tr><th>内定承諾の経路</th><th>合計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th style="color:var(--orange);">6月(〜6/16)</th></tr></thead>
         <tbody>
-          <tr class="row-total"><td>合計</td><td class="n-med">11</td><td>4</td><td>1</td><td>2</td><td>2</td><td class="n-new">2</td></tr>
-          <tr><td>ハローワーク</td><td>4</td><td>0</td><td>1</td><td>2</td><td>1</td><td class="n-zero">—</td></tr>
-          <tr><td>プレックス（WorCry経由）</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
-          <tr><td>社員紹介</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="n-new">1</td></tr>
-          <tr><td>ドライバーテクノロジーズ</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="n-new">1</td></tr>
-          <tr><td>自社ホームページ</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="n-zero">—</td></tr>
-          <tr><td>その他</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="n-zero">—</td></tr>
+          <tr class="row-total"><td>合計</td><td class="n-med">14</td><td>4</td><td>1</td><td>2</td><td>2</td><td>2</td><td class="n-new">3</td></tr>
+          <tr><td>ハローワーク</td><td>6</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td class="n-new">2</td></tr>
+          <tr><td>プレックス（WorCry経由）</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
+          <tr><td>社員紹介</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
+          <tr><td>ドラ侍</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="n-new">1</td></tr>
+          <tr><td>ドライバーテクノロジーズ</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
+          <tr><td>自社ホームページ</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="n-zero">—</td></tr>
+          <tr><td>その他</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="n-zero">—</td></tr>
         </tbody>
       </table>
       <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-        出典：ジョブカン 経路別応募者数推移（種別：内定承諾数）2026/01〜06/02
+        出典：ジョブカン 経路別応募者数推移（種別：内定承諾数）2026/01〜06/16
       </div>
     </div>
   </div>
@@ -370,20 +366,20 @@ function switchTab(id) {
   <div class="table-card" style="margin-bottom:16px;">
     <table>
       <thead>
-        <tr><th style="width:34%">経路</th><th>累計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月（〜6/2）</th></tr>
+        <tr><th style="width:34%">経路</th><th>累計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th style="color:var(--orange);">6月（〜6/16）</th></tr>
       </thead>
       <tbody>
-        <tr class="row-total"><td>合計</td><td class="n-big">87</td><td class="n-med">17</td><td class="n-med">11</td><td class="n-med">15</td><td class="n-med">22</td><td class="n-med">21</td><td class="n-big">1</td></tr>
-        <tr style="background:var(--orange-light);"><td><strong>WorCry経由</strong><span class="tag tag-wc">WorCry</span></td><td><strong>33</strong></td><td><strong>8</strong></td><td><strong>6</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>6</strong></td><td><strong>1</strong></td></tr>
-        <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>19</td><td>3</td><td>3</td><td>3</td><td>5</td><td>5</td><td class="n-zero">—</td></tr>
+        <tr class="row-total"><td>合計</td><td class="n-big">94</td><td class="n-med">17</td><td class="n-med">11</td><td class="n-med">15</td><td class="n-med">22</td><td class="n-med">21</td><td class="n-big">8</td></tr>
+        <tr style="background:var(--orange-light);"><td><strong>WorCry経由</strong><span class="tag tag-wc">WorCry</span></td><td><strong>36</strong></td><td><strong>8</strong></td><td><strong>6</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>6</strong></td><td><strong>4</strong></td></tr>
+        <tr><td>ドライバーテクノロジーズ<span class="tag tag-paid">有料</span></td><td>22</td><td>3</td><td>3</td><td>3</td><td>5</td><td>5</td><td class="n-new">3</td></tr>
         <tr><td>ハローワーク</td><td>14</td><td>1</td><td>2</td><td>1</td><td>5</td><td>5</td><td class="n-zero">—</td></tr>
-        <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>6</td><td>1</td><td>3</td><td>1</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
+        <tr><td>プレックス<span class="tag tag-wc">WorCry</span></td><td>7</td><td>1</td><td>3</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td>ドラ侍<span class="tag tag-paid">有料</span></td><td>6</td><td>0</td><td>0</td><td>1</td><td>3</td><td>2</td><td class="n-zero">—</td></tr>
         <tr><td>イツザイ</td><td>5</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td class="n-zero">—</td></tr>
-        <tr><td>直接応募（その他）<span class="tag tag-wc">WorCry</span></td><td>3</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
+        <tr><td>ドラピタ<span class="tag tag-paid">有料</span></td><td>4</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="n-new">1</td></tr>
+        <tr><td>直接応募（その他）<span class="tag tag-wc">WorCry</span></td><td>4</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="n-new">1</td></tr>
         <tr><td>自社ホームページ</td><td>3</td><td>2</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="n-zero">—</td></tr>
         <tr><td>engage（無料）</td><td>3</td><td>0</td><td>0</td><td>2</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
-        <tr><td>ドラピタ<span class="tag tag-paid">有料</span></td><td>3</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="n-zero">—</td></tr>
         <tr><td>社員紹介</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
         <tr><td>Googleしごと検索<span class="tag tag-wc">WorCry</span></td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
       </tbody>
@@ -392,22 +388,22 @@ function switchTab(id) {
   <div class="table-card">
     <div style="padding:10px 14px 6px; font-size:11px; font-weight:700; color:var(--orange); border-bottom:1px solid var(--border);">▼ WorCry経由 内訳</div>
     <table>
-      <thead><tr><th style="width:38%">媒体</th><th>累計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月（〜6/2）</th></tr></thead>
+      <thead><tr><th style="width:38%">媒体</th><th>累計</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th style="color:var(--orange);">6月（〜6/16）</th></tr></thead>
       <tbody>
-        <tr class="row-total"><td>WorCry経由 合計</td><td class="n-med">33</td><td>8</td><td>6</td><td>5</td><td>7</td><td>6</td><td>1</td></tr>
-        <tr><td>Indeed（直接応募）</td><td>22</td><td>7</td><td>2</td><td>3</td><td>5</td><td>5</td><td class="n-zero">—</td></tr>
+        <tr class="row-total"><td>WorCry経由 合計</td><td class="n-med">36</td><td>8</td><td>6</td><td>5</td><td>7</td><td>6</td><td class="n-new">4</td></tr>
+        <tr><td>Indeed（直接応募）</td><td>24</td><td>7</td><td>2</td><td>3</td><td>5</td><td>5</td><td class="n-new">2</td></tr>
         <tr><td>プレックス</td><td>7</td><td>1</td><td>3</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td>直接応募（その他）</td><td>3</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
+        <tr><td>直接応募（その他）</td><td>4</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="n-new">1</td></tr>
         <tr><td>Googleしごと検索</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="n-zero">—</td></tr>
       </tbody>
     </table>
     <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-      出典：ジョブカン 経路別応募者数推移（種別：応募数）2026/01〜06/02
+      出典：ジョブカン 経路別応募者数推移（種別：応募数）2026/01〜06/16
     </div>
   </div>
 </div>
 </div>
-<footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日 ／ 次回MTG：6月下旬予定</footer>
+<footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月16日 ／ MTG：2026年6月17日 ／ 次回MTG：7月上旬予定</footer>
 </div>
 
 <!-- TAB 2: 求人ダッシュボード -->
@@ -415,10 +411,10 @@ function switchTab(id) {
 <div class="cover">
   <div>
     <h1>マルソー様 求人ダッシュボード</h1>
-    <div class="sub">集計期間：2026/01/01〜2026/06/02　応募実績あり求人一覧</div>
+    <div class="sub">集計期間：2026/01/01〜2026/06/16　応募実績あり求人一覧</div>
   </div>
   <div class="cover-right">
-    <div class="date">2026年6月3日 MTG</div>
+    <div class="date">2026年6月17日 MTG</div>
     <div class="note">データソース：ジョブカン 選考ステップレポート</div>
     <div class="wc-badge">WorCry</div>
   </div>
@@ -532,12 +528,12 @@ function switchTab(id) {
       </tbody>
     </table>
     <div style="padding:8px 14px; font-size:10px; color:var(--muted); border-top:1px solid var(--border);">
-      出典：ジョブカン 選考ステップレポート（求人別）2026/01/01〜06/02 ／ ※承諾率 = 承諾数÷エントリー数
+      出典：ジョブカン 選考ステップレポート（求人別）2026/01/01〜06/16 ／ ※承諾率 = 承諾数÷エントリー数
     </div>
   </div>
 </div>
 </div>
-<footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月2日 ／ MTG：2026年6月3日</footer>
+<footer>作成：<strong>WorCry Inc.</strong> ／ 集計基準日：2026年6月16日 ／ MTG：2026年6月17日</footer>
 <script>
 // Indeed掲載ステータス（Jobcan条件達成済み判定 2026-06-11時点）
 const INDEED_STATUS = {
